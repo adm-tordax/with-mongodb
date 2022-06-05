@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <title>Roulette TMDB</title>
+    <meta name="description" content="Faites tourner la roue et obtenez de nouvelles idées de films et de séries à regarder.">
+    <link href="main.css" rel="stylesheet">
+
+    <!-- <script src="random.js"></script> -->
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script> -->
+    <script src="https://use.fontawesome.com/fe459689b4.js"></script>
+</head>
+
+<body onload="javascript:RandomMovie()">
+
+    <header id="header">
+        <div class="inner">
+            <div id="mobile-close"><span class="op">Fermer</span></div>
+        </div>
+    </header>
+    <main>
+        <div class="top-area">
+            <a>Le <strong>meilleur</strong> site pour du Netflix & <strong>chill</strong></a>
+        </div>
+        <div class="column-container">
+            <div class="primary">
+                <div class="section">
+                    <h1 class="top-element">Roulette TMDB</h1>
+                    <p class="intro">Faites tourner la roue et obtenez de nouvelles idées de films et de séries à regarder.</p>
+                    <div class="roulette" id="roulette-container">
+                        <div class="filters">
+                            <div class="radios">
+                                <div>
+                                    <input type="radio" name="roulette-filter-type" id="roulette-filter-type-movies" value="movies" checked>
+                                    <label for="roulette-filter-type-movies">Films</label>
+                                </div>
+                                <div>
+                                    <input type="radio" name="roulette-filter-type" id="roulette-filter-type-series" value="series">
+                                    <label for="roulette-filter-type-series">Séries</label>
+                                </div>
+                            </div>
+                            <button id="roulette-btn" class="">Tourner La Roue</button>
+                        </div>
+                        <div class="results with-result" id="roulette-results">
+                            <div class="title">
+                                <a class="item-init item poster">
+                                    <div class="poster" id="poster-of-program" style="background-image: url('https://c.flikshost.com/81447496/posters/AAAABbwMLewacJ6Yl0dD_x_ddwIaLc8ktkrQNJcRn_93Q7mUruIg5tCDYwy3dknx7GVW5H7_30Sg-FQbwBb6A0De12wBiw.jpg')"></div>
+                                    <!-- IMAGE DU FILM / SERIE-->
+                                </a>
+                                <div class="info">
+                                    <div class="inner">
+                                        <a class="item-init item roulette">
+                                            <h2 id="title-of-program2">Believe Me : Enlevée par un tueur</h2>
+                                            <!-- TITRE DU FILM / SERIE-->
+                                        </a>
+                                        <div class="sub-title">
+                                            <div class="meta"><a id="year-of-program2">2018</a> - <a id="time-of-program2">87</a> minutes | <a id="number_like_people">43</a> personnes ont aimé </id>
+                                            </div>
+                                            <!-- ANNEE ET DUREE DU FILM / SERIE-->
+                                        </div>
+                                        <p id="resume-of-program2">Dans ce film inspiré de faits réels, une adolescente de Floride se fait kidnapper puis parvient à fuir, mais peine à convaincre sa famille et la police de son calvaire.</p>
+                                        <!-- RESUME DU FILM / SERIE-->
+                                        <ul class="genres">
+                                            <!-- CATEGORIE DU FILM / SERIE-->
+                                            <li id="categorie-of-program2">Crime</li>
+                                        </ul>
+                                        <div>
+                                            <button class="btn" id="green"><i class="fa fa-thumbs-up fa-lg" aria-hidden="true"></i></button>
+                                            <button class="btn" id="red"><i class="fa fa-thumbs-down fa-lg" aria-hidden="true"></i></button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <div id="snackbar"></div>
+    <div id="to-the-top" class="op"></div>
+    <script>
+        // Les boutons de la roulette
+
+        const btn = document.getElementById('roulette-btn');
+
+        btn.addEventListener('click', function handleClick() {
+            if (document.getElementById('roulette-filter-type-movies').checked) {
+                RandomMovie()
+            } else if (document.getElementById('roulette-filter-type-series').checked) {
+                RandomTv()
+            }
+        });
+
+
+        // Les fonctions de traitement de l'api et preparation a l'ffichage
+
+        function RandomMovie() {
+
+            var request = new XMLHttpRequest()
+
+            request.open('GET', 'http://90.120.40.224:5000/movie', true)
+            request.onload = function() {
+                var data = JSON.parse(this.response)
+
+                if (request.status >= 200 && request.status < 400) {
+                    document.getElementById('poster-of-program').setAttribute("style", "background-image: url(" + data.path_image + ");");
+                    document.getElementById("title-of-program2").innerHTML = data.title;
+                    document.getElementById("year-of-program2").innerHTML = data.year;
+                    document.getElementById("time-of-program2").innerHTML = data.length;
+                    document.getElementById("resume-of-program2").innerHTML = data.summary;
+                    document.getElementById("categorie-of-program2").innerHTML = data.category;
+                    document.getElementById("number_like_people").innerHTML = data.nb_likes;
+                } else {
+                    console.log('error, maybe server down')
+                }
+            }
+            request.send()
+        }
+
+        function RandomTv() {
+
+            var request = new XMLHttpRequest()
+
+            request.open('GET', 'http://90.120.40.224:5000/tv', true)
+            request.onload = function() {
+                var data = JSON.parse(this.response)
+
+                if (request.status >= 200 && request.status < 400) {
+                    document.getElementById('poster-of-program').setAttribute("style", "background-image: url(" + data.path_image + ");");
+                    document.getElementById("title-of-program2").innerHTML = data.title;
+                    document.getElementById("year-of-program2").innerHTML = data.year;
+                    document.getElementById("time-of-program2").innerHTML = data.length;
+                    document.getElementById("resume-of-program2").innerHTML = data.summary;
+                    document.getElementById("categorie-of-program2").innerHTML = data.category;
+                    document.getElementById("number_like_people").innerHTML = data.nb_likes;
+                } else {
+                    console.log('error, maybe server down')
+                }
+            }
+            request.send()
+
+        }
+
+
+        // Les boutons pour le like et dislike
+
+        var btn1 = document.querySelector('#green');
+        var btn2 = document.querySelector('#red');
+
+        btn1.addEventListener('click', function() {
+            if (btn2.classList.contains('red')) {
+                btn2.classList.remove('red');
+            }
+            this.classList.toggle('green');
+        });
+
+        btn2.addEventListener('click', function() {
+            if (btn1.classList.contains('green')) {
+                btn1.classList.remove('green');
+            }
+            this.classList.toggle('red');
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,446 @@
+*,
+ :before,
+ :after {
+    box-sizing: border-box
+}
+
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+ol,
+ul {
+    margin: 0;
+    padding: 0
+}
+
+ul,
+ol {
+    list-style: none
+}
+
+a {
+    text-decoration: none
+}
+
+body {
+    font-size: 13px;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-family: Raleway, sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    color: #333
+}
+
+a {
+    text-decoration: none;
+    color: inherit
+}
+
+h1 {
+    width: 100%;
+    padding: 0 15px 5px;
+    font-size: 25px;
+    line-height: 28px;
+    font-weight: 900;
+    color: #000
+}
+
+div.section h1 {
+    margin: 20px 0 0;
+    padding-bottom: 0
+}
+
+div.section h1.top-element {
+    margin: 15px 20px 20px
+}
+
+div.section h2 {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    padding: 0 15px;
+    color: #333;
+    font-size: 18px;
+    font-weight: 900
+}
+
+div.section p {
+    line-height: 20px;
+    margin: 10px 15px 0
+}
+
+div.section p.intro {
+    font-size: 15px;
+    line-height: 23px;
+    margin: 0 35px 30px;
+    max-width: 750px
+}
+
+html {
+    height: 100%
+}
+
+body {
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+    background: #EAEAEA
+}
+
+header div.inner,
+header nav ul.tabs {
+    width: 100%;
+    max-width: 1240px;
+    margin: 0 auto
+}
+
+main {
+    width: 100%;
+    flex: 1;
+    padding-top: 90px
+}
+
+main div.top-area,
+main div.split,
+main div.newsletter,
+main div.count,
+main #content-container,
+main div.section {
+    width: 100%;
+    max-width: 1240px;
+    margin-right: auto;
+    margin-left: auto
+}
+
+div.section {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    background: #FFF;
+    margin: 10px 0 0;
+    padding: 15px 0
+}
+
+div.column-container {
+    display: flex;
+    flex-direction: row;
+    max-width: 1240px;
+    width: 100%;
+    margin: auto
+}
+
+div.column-container div.primary {
+    width: 100%
+}
+
+header {
+    background: #303030;
+    height: 90px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000
+}
+
+header div.inner {
+    display: flex;
+    align-items: center
+}
+
+header #mobile-close {
+    display: none
+}
+
+div.top-area {
+    width: 100%;
+    margin-top: 10px;
+    background: #F3FFEF;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 38px;
+    font-size: 12px;
+    text-transform: uppercase;
+    text-align: center;
+    padding: 5px 20px
+}
+
+div.top-area a {
+    font-weight: 700;
+    color: #236118
+}
+
+div.top-area a strong {
+    color: #000
+}
+
+a.button,
+button {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    border: 0;
+    background: #1EB774;
+    color: #FFF;
+    text-transform: uppercase;
+    font-weight: 700;
+    border-radius: 5px;
+    width: 200px;
+    height: 50px;
+    margin: auto;
+    font-size: 13px
+}
+
+#to-the-top {
+    position: fixed;
+    bottom: -50px;
+    right: 30px;
+    background: rgba(30, 183, 116, .7);
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    transition: bottom .15s ease-in;
+    background-image: url(/images/icons/ic_arrow_up.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 42px 42px;
+    z-index: 1001
+}
+
+#snackbar {
+    visibility: hidden;
+    min-width: 250px;
+    margin-left: -125px;
+    background-color: #D1F7E6;
+    text-align: center;
+    border-radius: 6px;
+    border: 1px solid #c1e7d6;
+    padding: 16px;
+    position: fixed;
+    z-index: 9999;
+    left: 50%;
+    bottom: 30px;
+    color: #000;
+    font-weight: 700
+}
+
+div.results {
+    overflow: auto;
+    overflow-x: hidden
+}
+
+div.roulette {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    padding: 20px 15px 0
+}
+
+div.roulette div.filters {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    background: #EBF8FF;
+    width: 320px
+}
+
+div.roulette div.filters div.radios {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    margin: 40px auto 30px
+}
+
+div.roulette div.filters div.radios div {
+    flex: 1;
+    display: flex;
+    justify-content: center
+}
+
+div.roulette div.filters div.radios div input,
+div.roulette div.filters div.radios div label {
+    cursor: pointer;
+    font-size: 15px
+}
+
+div.roulette div.filters div.radios div label {
+    padding: 1px 0 0 5px;
+    width: 100px
+}
+
+div.roulette div.filters button {
+    background: #2E91B7;
+    height: 36px;
+    width: 100%;
+    font-size: 15px
+}
+
+div.roulette div.results {
+    height: 230px;
+    display: flex;
+    flex: 1;
+    margin-left: 20px
+}
+
+div.roulette div.results div.title {
+    display: flex;
+    flex-direction: row;
+    width: 100%
+}
+
+div.roulette div.results div.title a.item div.poster {
+    background: #DDD;
+    background-size: cover;
+    width: 164px;
+    height: 100%;
+    opacity: 0;
+    border: 3px solid #DCDCDC;
+    transition: opacity .3s ease-in
+}
+
+div.roulette div.results div.title div.info h2,
+div.roulette div.results div.title div.info-narrow h2 {
+    padding: 5px 0 0;
+    text-transform: none;
+    font-weight: 900
+}
+
+div.roulette div.results div.title div.info {
+    padding-left: 20px;
+    flex: 1;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column
+}
+
+div.roulette div.results div.title div.info h2 {
+    padding-top: 10px;
+    font-size: 22px;
+    font-weight: 900
+}
+
+div.roulette div.results div.title div.info div.inner {
+    flex: 1
+}
+
+div.roulette div.results div.title div.sub-title {
+    margin: 5px 0 0;
+    font-weight: 700
+}
+
+div.roulette div.results div.title div.sub-title div.meta {
+    padding: 0 0 10px
+}
+
+div.roulette div.results div.title ul.genres {
+    margin: 10px 0 5px;
+    display: flex;
+    flex-wrap: wrap
+}
+
+div.roulette div.results div.title ul.genres li {
+    display: block;
+    font-weight: 700;
+    margin-right: 10px
+}
+
+div.roulette div.results div.title p {
+    font-size: 14px;
+    line-height: 24px;
+    max-height: 96px;
+    overflow: hidden;
+    margin: 10px 0 5px;
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical
+}
+
+div.roulette div.results.with-result div.title a.item div.poster {
+    opacity: 1
+}
+
+div.section div.info {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    padding: 0 15px
+}
+
+div.section div.info p {
+    margin: 5px 0 0;
+    flex: 1;
+    font-size: 14px;
+    line-height: 22px;
+    letter-spacing: .2px
+}
+body{
+    margin: 40px;
+}
+  
+  button{
+    cursor: pointer;
+    outline: 0;
+    color: #fefefe;
+  
+}
+  
+  .btn:focus {
+    outline: none;
+}
+  
+  .green{
+    color: green;
+}
+  
+  .red{
+    color: red;
+}
+.wrapper{
+    margin: 0 auto;
+    width: 50%;
+}
+  
+  .likes{
+    background-color: black;
+    border-radius: 100px;
+    height: 200px;
+    float: left;
+    width: 200px;
+}
+  
+  .dislikes{
+    background-color: black;
+    border-radius: 100px;
+    height: 200px;
+    float: right;
+    width: 200px;
+}
+  
+  #l-counter{
+    float: left;
+}
+  
+  #d-counter{
+    float: right;
+}
